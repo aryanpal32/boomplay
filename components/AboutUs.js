@@ -10,7 +10,7 @@ const AboutUs = () => (
     </div>
 
     {/* Floating logo */}
-    <div className="absolute top-10 right-10 w-24 h-24 opacity-100 animate-float">
+    {/* <div className="absolute top-10 right-10 w-24 h-24 opacity-100 animate-float">
       <Image 
         src="/boomplaylogo.png" // Replace with your logo path
         alt="Boom Play Media Logo"
@@ -18,7 +18,7 @@ const AboutUs = () => (
         height={96}
         className="object-contain"
       />
-    </div>
+    </div> */}
 
     <div className="max-w-6xl mx-auto relative z-10">
       {/* Animated title */}
@@ -109,7 +109,7 @@ const AboutUs = () => (
     </div>
 
     {/* Floating logo at bottom */}
-    <div className="absolute bottom-10 left-10 w-16 h-16 opacity-80 animate-float-reverse">
+    {/* <div className="absolute bottom-10 left-10 w-16 h-16 opacity-80 animate-float-reverse">
       <Image 
         src="/boomplaylogo.png" // Replace with your logo path
         alt="Boom Play Media Logo"
@@ -117,7 +117,7 @@ const AboutUs = () => (
         height={96}
         className="object-contain"
       />
-    </div>
+    </div> */}
   </section>
 );
 

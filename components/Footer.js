@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import AboutUs from './AboutUs';
 
 const Footer = () => (
   <footer className="relative bg-gradient-to-br from-blue-800 to-blue-950 text-white pt-16 pb-8 px-6 md:px-20 overflow-hidden">
@@ -99,21 +100,24 @@ const Footer = () => (
             Quick Links
           </h4>
           <div className="space-y-3">
-            <Link href="/about" className="block text-blue-100 hover:text-white transition-colors">
+            {/* <Link href="././AboutUs" className="block text-blue-100 hover:text-white transition-colors">
               About Us
-            </Link>
-            <Link href="/projects" className="block text-blue-100 hover:text-white transition-colors">
+            </Link> */}
+            <Link href="/" className="block text-blue-100 hover:text-white transition-colors">
               Our Projects
             </Link>
-            <Link href="/team" className="block text-blue-100 hover:text-white transition-colors">
+            {/* <Link href="/team" className="block text-blue-100 hover:text-white transition-colors">
               Our Team
-            </Link>
-            <Link href="/contact" className="block text-blue-100 hover:text-white transition-colors">
+            </Link> */}
+            <Link href="/ContactUs" className="block text-blue-100 hover:text-white transition-colors">
               Contact
             </Link>
-            <a href="https://www.boomplaymedia.com" target="_blank" rel="noopener noreferrer" className="block text-blue-100 hover:text-white transition-colors">
+            <Link href="/CareerPage" className="block text-blue-100 hover:text-white transition-colors">
+             CareerPage
+            </Link>
+            {/* <a href="https://www.boomplaymedia.com" target="_blank" rel="noopener noreferrer" className="block text-blue-100 hover:text-white transition-colors">
               Official Website
-            </a>
+            </a> */}
           </div>
         </div>
       </div>
