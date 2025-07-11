@@ -323,7 +323,7 @@ const CareerPage = () => {
         </h2>
         <p className="text-lg sm:text-xl mb-8">
           We’re always on the lookout for passionate and talented individuals
-          in the film and media industry. Whether you're in front of the camera
+          in the film and media industry. Whether you&apos;re in front of the camera
           or behind it, if you’ve got the drive — we want to hear from you!
         </p>
         <hr className="mb-8" />
