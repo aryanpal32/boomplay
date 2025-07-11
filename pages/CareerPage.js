@@ -495,7 +495,6 @@
 // export default CareerPage;
 
 
-
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
 
@@ -535,10 +534,10 @@ const CareerPage = () => {
     // Send form data via EmailJS
     emailjs
       .sendForm(
-        process.env.REACT_APP_EMAILJS_SERVICE_ID, // Access the service ID from .env
-        process.env.REACT_APP_EMAILJS_TEMPLATE_ID, // Access the template ID from .env
+        "YOUR_SERVICE_ID", // Replace with your service ID
+        "YOUR_TEMPLATE_ID", // Replace with your template ID
         e.target, // Target the form data
-        process.env.REACT_APP_EMAILJS_USER_ID // Access the user ID from .env
+        "YOUR_PUBLIC_USER_ID" // Replace with your public user ID from EmailJS
       )
       .then(
         (result) => {
@@ -572,14 +571,14 @@ const CareerPage = () => {
         </h2>
         <p className="text-lg sm:text-xl mb-8">
           We’re always on the lookout for passionate and talented individuals
-          in the film and media industry. Whether you're in front of the camera
-          or behind it, if you’ve got the drive — we want to hear from you!
+          in the film and media industry. Whether you&apos;re in front of the camera
+          or behind it, if you&apos;ve got the drive — we want to hear from you!
         </p>
         <hr className="mb-8" />
 
         <h3 className="text-2xl font-semibold mb-4">📋 Apply Now</h3>
         <p className="mb-8">
-          Fill out the form below to apply for a role with us. We’ll get in
+          Fill out the form below to apply for a role with us. We&apos;ll get in
           touch with suitable candidates shortly.
         </p>
 
