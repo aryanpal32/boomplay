@@ -23,7 +23,7 @@ const ProjectCard = ({ title, imgSrc, description, tags = [] }) => (
     {/* Content area */}
     <div className="p-5">
       <p className="text-gray-600 line-clamp-3 mb-4">
-        {description || "An exciting new project coming soon..."}
+        {description || "Psychological thriller"}
       </p>
       
       {/* Tags */}
@@ -52,4 +52,19 @@ const ProjectCard = ({ title, imgSrc, description, tags = [] }) => (
   </div>
 );
 
-export default ProjectCard;
+const OurProjects = () => (
+  <div className="container mx-auto py-16">
+    <h2 className="text-4xl font-bold text-center mb-12">Our Projects</h2>
+    
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      <ProjectCard 
+        title="🎬 Price Action – A Psychological Thriller" 
+        imgSrc="/priceaction.png" // Replace with actual image path
+        description="Price Action is the debut web series by Boom Play Media — a gripping psychological thriller set in the high-stakes world of stock trading. The story follows Aryan, a small-town dreamer who moves to the city to become an actor but accidentally stumbles into the chaotic world of financial markets. What begins as a search for success soon turns into a journey through greed, obsession, betrayal, and inner conflict. This series explores not just the technical side of trading, but the emotions, psychology, and mental pressure that drive human behavior in high-risk environments."
+        tags={["Psychological Thriller", "Stock Trading", "Drama", "Debut Series"]}
+      />
+    </div>
+  </div>
+);
+
+export default OurProjects;

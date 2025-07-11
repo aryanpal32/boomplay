@@ -7,9 +7,9 @@ import AboutUs from '@/components/AboutUs';
 import AboutFounder from '@/components/Aboutfounder';
 
 const projects = [
-  { title: 'The Journey', imgSrc: '/images/the-journey.jpg' },
-  { title: 'Urban Life', imgSrc: '/images/urban-life.jpg' },
-  { title: 'The Stray', imgSrc: '/images/the-stray.jpg' },
+  { title: 'Price Action', imgSrc: '/images/the-journey.jpg' },
+
+ 
 ];
 
 const Home = () => (

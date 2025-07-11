@@ -1,1490 +1,328 @@
-// import React, { useState } from "react";
-// import emailjs from "emailjs-com";
+import { useState } from 'react';
+import Head from 'next/head';
 
-// const CareerPage = () => {
-//   const [formData, setFormData] = useState({
-//     fullName: "",
-//     age: "",
-//     gender: "",
-//     about: "",
-//     email: "",
-//     phone: "",
-//     position: "",
-//     resume: null,
-//   });
-
-//   const handleChange = (e) => {
-//     const { name, value } = e.target;
-//     setFormData((prevData) => ({
-//       ...prevData,
-//       [name]: value,
-//     }));
-//   };
-
-//   const handleFileChange = (e) => {
-//     const { name, files } = e.target;
-//     setFormData((prevData) => ({
-//       ...prevData,
-//       [name]: files[0],
-//     }));
-//   };
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-
-//     const { fullName, age, gender, about, email, phone, position, resume } = formData;
-
-//     // Create a FormData object for the file
-//     const form = new FormData();
-//     form.append("resume", resume);
-
-//     // Send form data via EmailJS
-//     emailjs
-//       .sendForm(
-//         "YOUR_SERVICE_ID", // Replace with your service ID
-//         "YOUR_TEMPLATE_ID", // Replace with your template ID
-//         e.target, // Target the form data
-//         "YOUR_USER_ID" // Replace with your user ID
-//       )
-//       .then(
-//         (result) => {
-//           console.log("Email sent successfully:", result.text);
-//           alert("Application submitted successfully!");
-//         },
-//         (error) => {
-//           console.log("Error sending email:", error.text);
-//           alert("Error sending application. Please try again.");
-//         }
-//       );
-
-//     // Optionally reset the form data after submission
-//     setFormData({
-//       fullName: "",
-//       age: "",
-//       gender: "",
-//       about: "",
-//       email: "",
-//       phone: "",
-//       position: "",
-//       resume: null,
-//     });
-//   };
-
-//   return (
-//     <section className="bg-white text-blue-900 py-16 px-6 md:px-20">
-//       <div className="max-w-6xl mx-auto text-center">
-//         <h2 className="text-4xl sm:text-5xl font-semibold mb-8">
-//           Join Our Creative Team
-//         </h2>
-//         <p className="text-lg sm:text-xl mb-8">
-//           We’re always on the lookout for passionate and talented individuals in the film and media industry. Whether you're in front of the camera or behind it, if you’ve got the drive — we want to hear from you!
-//         </p>
-//         <hr className="mb-8" />
-
-//         <h3 className="text-2xl font-semibold mb-4">📋 Apply Now</h3>
-//         <p className="mb-8">
-//           Fill out the form below to apply for a role with us. We’ll get in touch with suitable candidates shortly.
-//         </p>
-
-//         <form onSubmit={handleSubmit} className="space-y-6">
-//           {/* Basic Information Section */}
-//           <div className="space-y-4">
-//             <h4 className="text-xl font-semibold">👤 Basic Information</h4>
-//             <div className="flex flex-col sm:flex-row sm:space-x-4">
-//               <input
-//                 type="text"
-//                 name="fullName"
-//                 placeholder="Full Name"
-//                 value={formData.fullName}
-//                 onChange={handleChange}
-//                 className="w-full sm:w-1/2 p-4 border border-gray-300 rounded-md"
-//                 required
-//               />
-//               <input
-//                 type="number"
-//                 name="age"
-//                 placeholder="Age"
-//                 value={formData.age}
-//                 onChange={handleChange}
-//                 className="w-full sm:w-1/2 p-4 border border-gray-300 rounded-md"
-//                 required
-//               />
-//             </div>
-
-//             <div className="flex flex-col sm:flex-row sm:space-x-4">
-//               <label className="text-lg font-semibold">Gender:</label>
-//               <div className="flex space-x-4">
-//                 <label>
-//                   <input
-//                     type="radio"
-//                     name="gender"
-//                     value="Male"
-//                     onChange={handleChange}
-//                     className="mr-2"
-//                   />
-//                   Male
-//                 </label>
-//                 <label>
-//                   <input
-//                     type="radio"
-//                     name="gender"
-//                     value="Female"
-//                     onChange={handleChange}
-//                     className="mr-2"
-//                   />
-//                   Female
-//                 </label>
-//                 <label>
-//                   <input
-//                     type="radio"
-//                     name="gender"
-//                     value="Other"
-//                     onChange={handleChange}
-//                     className="mr-2"
-//                   />
-//                   Other
-//                 </label>
-//                 <label>
-//                   <input
-//                     type="radio"
-//                     name="gender"
-//                     value="Prefer not to say"
-//                     onChange={handleChange}
-//                     className="mr-2"
-//                   />
-//                   Prefer not to say
-//                 </label>
-//               </div>
-//             </div>
-//           </div>
-
-//           {/* About You Section */}
-//           <div className="space-y-4">
-//             <h4 className="text-xl font-semibold">🧾 About You</h4>
-//             <textarea
-//               name="about"
-//               placeholder="Tell us about yourself: (short bio, experience, goals, etc.)"
-//               value={formData.about}
-//               onChange={handleChange}
-//               className="w-full p-4 border border-gray-300 rounded-md"
-//               rows="4"
-//               required
-//             />
-//           </div>
-
-//           {/* Contact Details Section */}
-//           <div className="space-y-4">
-//             <h4 className="text-xl font-semibold">📞 Contact Details</h4>
-//             <div className="flex flex-col sm:flex-row sm:space-x-4">
-//               <input
-//                 type="email"
-//                 name="email"
-//                 placeholder="Email Address"
-//                 value={formData.email}
-//                 onChange={handleChange}
-//                 className="w-full sm:w-1/2 p-4 border border-gray-300 rounded-md"
-//                 required
-//               />
-//               <input
-//                 type="tel"
-//                 name="phone"
-//                 placeholder="Phone Number"
-//                 value={formData.phone}
-//                 onChange={handleChange}
-//                 className="w-full sm:w-1/2 p-4 border border-gray-300 rounded-md"
-//                 required
-//               />
-//             </div>
-//           </div>
-
-//           {/* Position You’re Applying For Section */}
-//           <div className="space-y-4">
-//             <h4 className="text-xl font-semibold">🎭 Position You’re Applying For</h4>
-//             <select
-//               name="position"
-//               value={formData.position}
-//               onChange={handleChange}
-//               className="w-full p-4 border border-gray-300 rounded-md"
-//               required
-//             >
-//               <option value="">Select a position</option>
-//               <option value="Actor">Actor</option>
-//               <option value="Cinematographer">Cinematographer</option>
-//               <option value="Photographer">Photographer</option>
-//               <option value="DOP">Director of Photography (DOP)</option>
-//               <option value="Production Manager">Production Manager</option>
-//               <option value="Sound Engineer">Sound Engineer</option>
-//               <option value="Other">Other</option>
-//             </select>
-//           </div>
-
-//           {/* Resume / Portfolio Upload */}
-//           <div className="space-y-4">
-//             <h4 className="text-xl font-semibold">📎 Upload Resume / Portfolio (Optional)</h4>
-//             <input
-//               type="file"
-//               name="resume"
-//               onChange={handleFileChange}
-//               className="w-full p-4 border border-gray-300 rounded-md"
-//             />
-//           </div>
-
-//           {/* Submit Button */}
-//           <div className="mt-6">
-//             <button
-//               type="submit"
-//               className="w-full bg-blue-900 text-white font-bold py-3 px-6 rounded-full text-xl transition-all duration-300 hover:bg-blue-700"
-//             >
-//               Submit Application
-//             </button>
-//           </div>
-//         </form>
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default CareerPage;
-
-
-// import React, { useState } from "react";
-// import emailjs from "emailjs-com";
-
-// const CareerPage = () => {
-//   const [formData, setFormData] = useState({
-//     fullName: "",
-//     age: "",
-//     gender: "",
-//     about: "",
-//     email: "",
-//     phone: "",
-//     position: "",
-//     resume: null,
-//   });
-
-//   const handleChange = (e) => {
-//     const { name, value } = e.target;
-//     setFormData((prevData) => ({
-//       ...prevData,
-//       [name]: value,
-//     }));
-//   };
-
-//   const handleFileChange = (e) => {
-//     const { name, files } = e.target;
-//     setFormData((prevData) => ({
-//       ...prevData,
-//       [name]: files[0],
-//     }));
-//   };
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-
-//     const { fullName, age, gender, about, email, phone, position, resume } = formData;
-
-//     // Send form data via EmailJS
-//     emailjs
-//       .sendForm(
-//         "YOUR_SERVICE_ID", // Replace with your service ID
-//         "YOUR_TEMPLATE_ID", // Replace with your template ID
-//         e.target, // Target the form data
-//         "YOUR_PUBLIC_USER_ID" // Replace with your public user ID from EmailJS
-//       )
-//       .then(
-//         (result) => {
-//           console.log("Email sent successfully:", result.text);
-//           alert("Application submitted successfully!");
-//         },
-//         (error) => {
-//           console.log("Error sending email:", error.text);
-//           alert("Error sending application. Please try again.");
-//         }
-//       );
-
-//     // Optionally reset the form data after submission
-//     setFormData({
-//       fullName: "",
-//       age: "",
-//       gender: "",
-//       about: "",
-//       email: "",
-//       phone: "",
-//       position: "",
-//       resume: null,
-//     });
-//   };
-
-//   return (
-//     <section className="bg-white text-blue-900 py-16 px-6 md:px-20">
-//       <div className="max-w-6xl mx-auto text-center">
-//         <h2 className="text-4xl sm:text-5xl font-semibold mb-8">
-//           Join Our Creative Team
-//         </h2>
-//         <p className="text-lg sm:text-xl mb-8">
-//           We’re always on the lookout for passionate and talented individuals
-//           in the film and media industry. Whether you&apos;re in front of the camera
-//           or behind it, if you’ve got the drive — we want to hear from you!
-//         </p>
-//         <hr className="mb-8" />
-
-//         <h3 className="text-2xl font-semibold mb-4">📋 Apply Now</h3>
-//         <p className="mb-8">
-//           Fill out the form below to apply for a role with us. We’ll get in
-//           touch with suitable candidates shortly.
-//         </p>
-
-//         <form onSubmit={handleSubmit} className="space-y-6">
-//           {/* Basic Information Section */}
-//           <div className="space-y-4">
-//             <h4 className="text-xl font-semibold">👤 Basic Information</h4>
-//             <div className="flex flex-col sm:flex-row sm:space-x-4">
-//               <input
-//                 type="text"
-//                 name="fullName"
-//                 placeholder="Full Name"
-//                 value={formData.fullName}
-//                 onChange={handleChange}
-//                 className="w-full sm:w-1/2 p-4 border border-gray-300 rounded-md"
-//                 required
-//               />
-//               <input
-//                 type="number"
-//                 name="age"
-//                 placeholder="Age"
-//                 value={formData.age}
-//                 onChange={handleChange}
-//                 className="w-full sm:w-1/2 p-4 border border-gray-300 rounded-md"
-//                 required
-//               />
-//             </div>
-
-//             <div className="flex flex-col sm:flex-row sm:space-x-4">
-//               <label className="text-lg font-semibold">Gender:</label>
-//               <div className="flex space-x-4">
-//                 <label>
-//                   <input
-//                     type="radio"
-//                     name="gender"
-//                     value="Male"
-//                     onChange={handleChange}
-//                     className="mr-2"
-//                   />
-//                   Male
-//                 </label>
-//                 <label>
-//                   <input
-//                     type="radio"
-//                     name="gender"
-//                     value="Female"
-//                     onChange={handleChange}
-//                     className="mr-2"
-//                   />
-//                   Female
-//                 </label>
-//                 <label>
-//                   <input
-//                     type="radio"
-//                     name="gender"
-//                     value="Other"
-//                     onChange={handleChange}
-//                     className="mr-2"
-//                   />
-//                   Other
-//                 </label>
-//                 <label>
-//                   <input
-//                     type="radio"
-//                     name="gender"
-//                     value="Prefer not to say"
-//                     onChange={handleChange}
-//                     className="mr-2"
-//                   />
-//                   Prefer not to say
-//                 </label>
-//               </div>
-//             </div>
-//           </div>
-
-//           {/* About You Section */}
-//           <div className="space-y-4">
-//             <h4 className="text-xl font-semibold">🧾 About You</h4>
-//             <textarea
-//               name="about"
-//               placeholder="Tell us about yourself: (short bio, experience, goals, etc.)"
-//               value={formData.about}
-//               onChange={handleChange}
-//               className="w-full p-4 border border-gray-300 rounded-md"
-//               rows="4"
-//               required
-//             />
-//           </div>
-
-//           {/* Contact Details Section */}
-//           <div className="space-y-4">
-//             <h4 className="text-xl font-semibold">📞 Contact Details</h4>
-//             <div className="flex flex-col sm:flex-row sm:space-x-4">
-//               <input
-//                 type="email"
-//                 name="email"
-//                 placeholder="Email Address"
-//                 value={formData.email}
-//                 onChange={handleChange}
-//                 className="w-full sm:w-1/2 p-4 border border-gray-300 rounded-md"
-//                 required
-//               />
-//               <input
-//                 type="tel"
-//                 name="phone"
-//                 placeholder="Phone Number"
-//                 value={formData.phone}
-//                 onChange={handleChange}
-//                 className="w-full sm:w-1/2 p-4 border border-gray-300 rounded-md"
-//                 required
-//               />
-//             </div>
-//           </div>
-
-//           {/* Position You’re Applying For Section */}
-//           <div className="space-y-4">
-//             <h4 className="text-xl font-semibold">🎭 Position You’re Applying For</h4>
-//             <select
-//               name="position"
-//               value={formData.position}
-//               onChange={handleChange}
-//               className="w-full p-4 border border-gray-300 rounded-md"
-//               required
-//             >
-//               <option value="">Select a position</option>
-//               <option value="Actor">Actor</option>
-//               <option value="Cinematographer">Cinematographer</option>
-//               <option value="Photographer">Photographer</option>
-//               <option value="DOP">Director of Photography (DOP)</option>
-//               <option value="Production Manager">Production Manager</option>
-//               <option value="Sound Engineer">Sound Engineer</option>
-//               <option value="Other">Other</option>
-//             </select>
-//           </div>
-
-//           {/* Resume / Portfolio Upload */}
-//           <div className="space-y-4">
-//             <h4 className="text-xl font-semibold">📎 Upload Resume / Portfolio (Optional)</h4>
-//             <input
-//               type="file"
-//               name="resume"
-//               onChange={handleFileChange}
-//               className="w-full p-4 border border-gray-300 rounded-md"
-//             />
-//           </div>
-
-//           {/* Submit Button */}
-//           <div className="mt-6">
-//             <button
-//               type="submit"
-//               className="w-full bg-blue-900 text-white font-bold py-3 px-6 rounded-full text-xl transition-all duration-300 hover:bg-blue-700"
-//             >
-//               Submit Application
-//             </button>
-//           </div>
-//         </form>
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default CareerPage;
-
-
-// import React, { useState } from "react";
-// import emailjs from "emailjs-com";
-
-// const CareerPage = () => {
-//   const [formData, setFormData] = useState({
-//     fullName: "",
-//     age: "",
-//     gender: "",
-//     about: "",
-//     email: "",
-//     phone: "",
-//     position: "",
-//     resume: null,
-//   });
-
-//   const handleChange = (e) => {
-//     const { name, value } = e.target;
-//     setFormData((prevData) => ({
-//       ...prevData,
-//       [name]: value,
-//     }));
-//   };
-
-//   const handleFileChange = (e) => {
-//     const { name, files } = e.target;
-//     setFormData((prevData) => ({
-//       ...prevData,
-//       [name]: files[0],
-//     }));
-//   };
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-
-//     const { fullName, age, gender, about, email, phone, position, resume } = formData;
-
-//     // Send form data via EmailJS
-//     emailjs
-//       .sendForm(
-//         "YOUR_SERVICE_ID", // Replace with your service ID
-//         "YOUR_TEMPLATE_ID", // Replace with your template ID
-//         e.target, // Target the form data
-//         "YOUR_PUBLIC_USER_ID" // Replace with your public user ID from EmailJS
-//       )
-//       .then(
-//         (result) => {
-//           console.log("Email sent successfully:", result.text);
-//           alert("Application submitted successfully!");
-//         },
-//         (error) => {
-//           console.log("Error sending email:", error.text);
-//           alert("Error sending application. Please try again.");
-//         }
-//       );
-
-//     // Optionally reset the form data after submission
-//     setFormData({
-//       fullName: "",
-//       age: "",
-//       gender: "",
-//       about: "",
-//       email: "",
-//       phone: "",
-//       position: "",
-//       resume: null,
-//     });
-//   };
-
-//   return (
-//     <section className="bg-white text-blue-900 py-16 px-6 md:px-20">
-//       <div className="max-w-6xl mx-auto text-center">
-//         <h2 className="text-4xl sm:text-5xl font-semibold mb-8">
-//           Join Our Creative Team
-//         </h2>
-//         <p className="text-lg sm:text-xl mb-8">
-//           We’re always on the lookout for passionate and talented individuals
-//           in the film and media industry. Whether you&apos;re in front of the camera
-//           or behind it, if you&apos;ve got the drive — we want to hear from you!
-//         </p>
-//         <hr className="mb-8" />
-
-//         <h3 className="text-2xl font-semibold mb-4">📋 Apply Now</h3>
-//         <p className="mb-8">
-//           Fill out the form below to apply for a role with us. We&apos;ll get in
-//           touch with suitable candidates shortly.
-//         </p>
-
-//         <form onSubmit={handleSubmit} className="space-y-6">
-//           {/* Basic Information Section */}
-//           <div className="space-y-4">
-//             <h4 className="text-xl font-semibold">👤 Basic Information</h4>
-//             <div className="flex flex-col sm:flex-row sm:space-x-4">
-//               <input
-//                 type="text"
-//                 name="fullName"
-//                 placeholder="Full Name"
-//                 value={formData.fullName}
-//                 onChange={handleChange}
-//                 className="w-full sm:w-1/2 p-4 border border-gray-300 rounded-md"
-//                 required
-//               />
-//               <input
-//                 type="number"
-//                 name="age"
-//                 placeholder="Age"
-//                 value={formData.age}
-//                 onChange={handleChange}
-//                 className="w-full sm:w-1/2 p-4 border border-gray-300 rounded-md"
-//                 required
-//               />
-//             </div>
-
-//             <div className="flex flex-col sm:flex-row sm:space-x-4">
-//               <label className="text-lg font-semibold">Gender:</label>
-//               <div className="flex space-x-4">
-//                 <label>
-//                   <input
-//                     type="radio"
-//                     name="gender"
-//                     value="Male"
-//                     onChange={handleChange}
-//                     className="mr-2"
-//                   />
-//                   Male
-//                 </label>
-//                 <label>
-//                   <input
-//                     type="radio"
-//                     name="gender"
-//                     value="Female"
-//                     onChange={handleChange}
-//                     className="mr-2"
-//                   />
-//                   Female
-//                 </label>
-//                 <label>
-//                   <input
-//                     type="radio"
-//                     name="gender"
-//                     value="Other"
-//                     onChange={handleChange}
-//                     className="mr-2"
-//                   />
-//                   Other
-//                 </label>
-//                 <label>
-//                   <input
-//                     type="radio"
-//                     name="gender"
-//                     value="Prefer not to say"
-//                     onChange={handleChange}
-//                     className="mr-2"
-//                   />
-//                   Prefer not to say
-//                 </label>
-//               </div>
-//             </div>
-//           </div>
-
-//           {/* About You Section */}
-//           <div className="space-y-4">
-//             <h4 className="text-xl font-semibold">🧾 About You</h4>
-//             <textarea
-//               name="about"
-//               placeholder="Tell us about yourself: (short bio, experience, goals, etc.)"
-//               value={formData.about}
-//               onChange={handleChange}
-//               className="w-full p-4 border border-gray-300 rounded-md"
-//               rows="4"
-//               required
-//             />
-//           </div>
-
-//           {/* Contact Details Section */}
-//           <div className="space-y-4">
-//             <h4 className="text-xl font-semibold">📞 Contact Details</h4>
-//             <div className="flex flex-col sm:flex-row sm:space-x-4">
-//               <input
-//                 type="email"
-//                 name="email"
-//                 placeholder="Email Address"
-//                 value={formData.email}
-//                 onChange={handleChange}
-//                 className="w-full sm:w-1/2 p-4 border border-gray-300 rounded-md"
-//                 required
-//               />
-//               <input
-//                 type="tel"
-//                 name="phone"
-//                 placeholder="Phone Number"
-//                 value={formData.phone}
-//                 onChange={handleChange}
-//                 className="w-full sm:w-1/2 p-4 border border-gray-300 rounded-md"
-//                 required
-//               />
-//             </div>
-//           </div>
-
-//           {/* Position You’re Applying For Section */}
-//           <div className="space-y-4">
-//             <h4 className="text-xl font-semibold">🎭 Position You’re Applying For</h4>
-//             <select
-//               name="position"
-//               value={formData.position}
-//               onChange={handleChange}
-//               className="w-full p-4 border border-gray-300 rounded-md"
-//               required
-//             >
-//               <option value="">Select a position</option>
-//               <option value="Actor">Actor</option>
-//               <option value="Cinematographer">Cinematographer</option>
-//               <option value="Photographer">Photographer</option>
-//               <option value="DOP">Director of Photography (DOP)</option>
-//               <option value="Production Manager">Production Manager</option>
-//               <option value="Sound Engineer">Sound Engineer</option>
-//               <option value="Other">Other</option>
-//             </select>
-//           </div>
-
-//           {/* Resume / Portfolio Upload */}
-//           <div className="space-y-4">
-//             <h4 className="text-xl font-semibold">📎 Upload Resume / Portfolio (Optional)</h4>
-//             <input
-//               type="file"
-//               name="resume"
-//               onChange={handleFileChange}
-//               className="w-full p-4 border border-gray-300 rounded-md"
-//             />
-//           </div>
-
-//           {/* Submit Button */}
-//           <div className="mt-6">
-//             <button
-//               type="submit"
-//               className="w-full bg-blue-900 text-white font-bold py-3 px-6 rounded-full text-xl transition-all duration-300 hover:bg-blue-700"
-//             >
-//               Submit Application
-//             </button>
-//           </div>
-//         </form>
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default CareerPage;
-
-
-// import React, { useState } from "react";
-// import emailjs from "emailjs-com";
-
-// const CareerPage = () => {
-//   const [formData, setFormData] = useState({
-//     fullName: "",
-//     age: "",
-//     gender: "",
-//     about: "",
-//     email: "",
-//     phone: "",
-//     position: "",
-//     resume: null,
-//   });
-
-//   const handleChange = (e) => {
-//     const { name, value } = e.target;
-//     setFormData((prevData) => ({
-//       ...prevData,
-//       [name]: value,
-//     }));
-//   };
-
-//   const handleFileChange = (e) => {
-//     const { name, files } = e.target;
-//     setFormData((prevData) => ({
-//       ...prevData,
-//       [name]: files[0],
-//     }));
-//   };
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-
-//     const { fullName, age, gender, about, email, phone, position, resume } = formData;
-
-//     // Send form data via EmailJS
-//     emailjs
-//       .sendForm(
-//         process.env.REACT_APP_EMAILJS_SERVICE_ID, // Get service ID from .env
-//         process.env.REACT_APP_EMAILJS_TEMPLATE_ID, // Get template ID from .env
-//         e.target, // Use e.target to get the form data
-//         process.env.REACT_APP_EMAILJS_USER_ID // Get user ID from .env
-//       )
-//       .then(
-//         (result) => {
-//           console.log("Email sent successfully:", result.text);
-//           alert("Application submitted successfully!");
-//         },
-//         (error) => {
-//           console.log("Error sending email:", error.text);
-//           alert("Error sending application. Please try again.");
-//         }
-//       );
-
-//     // Optionally reset the form data after submission
-//     setFormData({
-//       fullName: "",
-//       age: "",
-//       gender: "",
-//       about: "",
-//       email: "",
-//       phone: "",
-//       position: "",
-//       resume: null,
-//     });
-//   };
-
-//   return (
-//     <section className="bg-white text-blue-900 py-16 px-6 md:px-20">
-//       <div className="max-w-6xl mx-auto text-center">
-//         <h2 className="text-4xl sm:text-5xl font-semibold mb-8">
-//           Join Our Creative Team
-//         </h2>
-//         <p className="text-lg sm:text-xl mb-8">
-//           We’re always on the lookout for passionate and talented individuals
-//           in the film and media industry. Whether you&apos;re in front of the camera
-//           or behind it, if you&apos;ve got the drive — we want to hear from you!
-//         </p>
-//         <hr className="mb-8" />
-
-//         <h3 className="text-2xl font-semibold mb-4">📋 Apply Now</h3>
-//         <p className="mb-8">
-//           Fill out the form below to apply for a role with us. We&apos;ll get in
-//           touch with suitable candidates shortly.
-//         </p>
-
-//         <form onSubmit={handleSubmit} className="space-y-6">
-//           {/* Basic Information Section */}
-//           <div className="space-y-4">
-//             <h4 className="text-xl font-semibold">👤 Basic Information</h4>
-//             <div className="flex flex-col sm:flex-row sm:space-x-4">
-//               <input
-//                 type="text"
-//                 name="fullName"
-//                 placeholder="Full Name"
-//                 value={formData.fullName}
-//                 onChange={handleChange}
-//                 className="w-full sm:w-1/2 p-4 border border-gray-300 rounded-md"
-//                 required
-//               />
-//               <input
-//                 type="number"
-//                 name="age"
-//                 placeholder="Age"
-//                 value={formData.age}
-//                 onChange={handleChange}
-//                 className="w-full sm:w-1/2 p-4 border border-gray-300 rounded-md"
-//                 required
-//               />
-//             </div>
-
-//             <div className="flex flex-col sm:flex-row sm:space-x-4">
-//               <label className="text-lg font-semibold">Gender:</label>
-//               <div className="flex space-x-4">
-//                 <label>
-//                   <input
-//                     type="radio"
-//                     name="gender"
-//                     value="Male"
-//                     onChange={handleChange}
-//                     className="mr-2"
-//                   />
-//                   Male
-//                 </label>
-//                 <label>
-//                   <input
-//                     type="radio"
-//                     name="gender"
-//                     value="Female"
-//                     onChange={handleChange}
-//                     className="mr-2"
-//                   />
-//                   Female
-//                 </label>
-//                 <label>
-//                   <input
-//                     type="radio"
-//                     name="gender"
-//                     value="Other"
-//                     onChange={handleChange}
-//                     className="mr-2"
-//                   />
-//                   Other
-//                 </label>
-//                 <label>
-//                   <input
-//                     type="radio"
-//                     name="gender"
-//                     value="Prefer not to say"
-//                     onChange={handleChange}
-//                     className="mr-2"
-//                   />
-//                   Prefer not to say
-//                 </label>
-//               </div>
-//             </div>
-//           </div>
-
-//           {/* About You Section */}
-//           <div className="space-y-4">
-//             <h4 className="text-xl font-semibold">🧾 About You</h4>
-//             <textarea
-//               name="about"
-//               placeholder="Tell us about yourself: (short bio, experience, goals, etc.)"
-//               value={formData.about}
-//               onChange={handleChange}
-//               className="w-full p-4 border border-gray-300 rounded-md"
-//               rows="4"
-//               required
-//             />
-//           </div>
-
-//           {/* Contact Details Section */}
-//           <div className="space-y-4">
-//             <h4 className="text-xl font-semibold">📞 Contact Details</h4>
-//             <div className="flex flex-col sm:flex-row sm:space-x-4">
-//               <input
-//                 type="email"
-//                 name="email"
-//                 placeholder="Email Address"
-//                 value={formData.email}
-//                 onChange={handleChange}
-//                 className="w-full sm:w-1/2 p-4 border border-gray-300 rounded-md"
-//                 required
-//               />
-//               <input
-//                 type="tel"
-//                 name="phone"
-//                 placeholder="Phone Number"
-//                 value={formData.phone}
-//                 onChange={handleChange}
-//                 className="w-full sm:w-1/2 p-4 border border-gray-300 rounded-md"
-//                 required
-//               />
-//             </div>
-//           </div>
-
-//           {/* Position You’re Applying For Section */}
-//           <div className="space-y-4">
-//             <h4 className="text-xl font-semibold">🎭 Position You’re Applying For</h4>
-//             <select
-//               name="position"
-//               value={formData.position}
-//               onChange={handleChange}
-//               className="w-full p-4 border border-gray-300 rounded-md"
-//               required
-//             >
-//               <option value="">Select a position</option>
-//               <option value="Actor">Actor</option>
-//               <option value="Cinematographer">Cinematographer</option>
-//               <option value="Photographer">Photographer</option>
-//               <option value="DOP">Director of Photography (DOP)</option>
-//               <option value="Production Manager">Production Manager</option>
-//               <option value="Sound Engineer">Sound Engineer</option>
-//               <option value="Other">Other</option>
-//             </select>
-//           </div>
-
-//           {/* Resume / Portfolio Upload */}
-//           <div className="space-y-4">
-//             <h4 className="text-xl font-semibold">📎 Upload Resume / Portfolio (Optional)</h4>
-//             <input
-//               type="file"
-//               name="resume"
-//               onChange={handleFileChange}
-//               className="w-full p-4 border border-gray-300 rounded-md"
-//             />
-//           </div>
-
-//           {/* Submit Button */}
-//           <div className="mt-6">
-//             <button
-//               type="submit"
-//               className="w-full bg-blue-900 text-white font-bold py-3 px-6 rounded-full text-xl transition-all duration-300 hover:bg-blue-700"
-//             >
-//               Submit Application
-//             </button>
-//           </div>
-//         </form>
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default CareerPage;
-
-
-// import React, { useState } from "react";
-// import emailjs from "emailjs-com";
-
-// const CareerPage = () => {
-//   const [formData, setFormData] = useState({
-//     fullName: "",
-//     age: "",
-//     gender: "",
-//     about: "",
-//     email: "",
-//     phone: "",
-//     position: "",
-//     resume: null,
-//   });
-
-//   const handleChange = (e) => {
-//     const { name, value } = e.target;
-//     setFormData((prevData) => ({
-//       ...prevData,
-//       [name]: value,
-//     }));
-//   };
-
-//   const handleFileChange = (e) => {
-//     const { name, files } = e.target;
-//     setFormData((prevData) => ({
-//       ...prevData,
-//       [name]: files[0],
-//     }));
-//   };
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-
-//     const { fullName, age, gender, about, email, phone, position, resume } = formData;
-
-//     // Send form data via EmailJS
-//     emailjs
-//       .sendForm(
-//         process.env.REACT_APP_EMAILJS_SERVICE_ID, // Service ID from .env
-//         process.env.REACT_APP_EMAILJS_TEMPLATE_ID, // Template ID from .env
-//         e.target, // The form itself
-//         process.env.REACT_APP_EMAILJS_USER_ID // User ID from .env
-//       )
-//       .then(
-//         (result) => {
-//           console.log("Email sent successfully:", result.text);
-//           alert("Application submitted successfully!");
-//         },
-//         (error) => {
-//           console.log("Error sending email:", error.text);
-//           alert("Error sending application. Please try again.");
-//         }
-//       );
-
-//     // Optionally reset the form data after submission
-//     setFormData({
-//       fullName: "",
-//       age: "",
-//       gender: "",
-//       about: "",
-//       email: "",
-//       phone: "",
-//       position: "",
-//       resume: null,
-//     });
-//   };
-
-//   return (
-//     <section className="bg-white text-blue-900 py-16 px-6 md:px-20">
-//       <div className="max-w-6xl mx-auto text-center">
-//         <h2 className="text-4xl sm:text-5xl font-semibold mb-8">
-//           Join Our Creative Team
-//         </h2>
-//         <p className="text-lg sm:text-xl mb-8">
-//           We’re always on the lookout for passionate and talented individuals
-//           in the film and media industry. Whether you&apos;re in front of the camera
-//           or behind it, if you&apos;ve got the drive — we want to hear from you!
-//         </p>
-//         <hr className="mb-8" />
-
-//         <h3 className="text-2xl font-semibold mb-4">📋 Apply Now</h3>
-//         <p className="mb-8">
-//           Fill out the form below to apply for a role with us. We&apos;ll get in
-//           touch with suitable candidates shortly.
-//         </p>
-
-//         <form onSubmit={handleSubmit} className="space-y-6">
-//           {/* Basic Information Section */}
-//           <div className="space-y-4">
-//             <h4 className="text-xl font-semibold">👤 Basic Information</h4>
-//             <div className="flex flex-col sm:flex-row sm:space-x-4">
-//               <input
-//                 type="text"
-//                 name="fullName"
-//                 placeholder="Full Name"
-//                 value={formData.fullName}
-//                 onChange={handleChange}
-//                 className="w-full sm:w-1/2 p-4 border border-gray-300 rounded-md"
-//                 required
-//               />
-//               <input
-//                 type="number"
-//                 name="age"
-//                 placeholder="Age"
-//                 value={formData.age}
-//                 onChange={handleChange}
-//                 className="w-full sm:w-1/2 p-4 border border-gray-300 rounded-md"
-//                 required
-//               />
-//             </div>
-
-//             <div className="flex flex-col sm:flex-row sm:space-x-4">
-//               <label className="text-lg font-semibold">Gender:</label>
-//               <div className="flex space-x-4">
-//                 <label>
-//                   <input
-//                     type="radio"
-//                     name="gender"
-//                     value="Male"
-//                     onChange={handleChange}
-//                     className="mr-2"
-//                   />
-//                   Male
-//                 </label>
-//                 <label>
-//                   <input
-//                     type="radio"
-//                     name="gender"
-//                     value="Female"
-//                     onChange={handleChange}
-//                     className="mr-2"
-//                   />
-//                   Female
-//                 </label>
-//                 <label>
-//                   <input
-//                     type="radio"
-//                     name="gender"
-//                     value="Other"
-//                     onChange={handleChange}
-//                     className="mr-2"
-//                   />
-//                   Other
-//                 </label>
-//                 <label>
-//                   <input
-//                     type="radio"
-//                     name="gender"
-//                     value="Prefer not to say"
-//                     onChange={handleChange}
-//                     className="mr-2"
-//                   />
-//                   Prefer not to say
-//                 </label>
-//               </div>
-//             </div>
-//           </div>
-
-//           {/* About You Section */}
-//           <div className="space-y-4">
-//             <h4 className="text-xl font-semibold">🧾 About You</h4>
-//             <textarea
-//               name="about"
-//               placeholder="Tell us about yourself: (short bio, experience, goals, etc.)"
-//               value={formData.about}
-//               onChange={handleChange}
-//               className="w-full p-4 border border-gray-300 rounded-md"
-//               rows="4"
-//               required
-//             />
-//           </div>
-
-//           {/* Contact Details Section */}
-//           <div className="space-y-4">
-//             <h4 className="text-xl font-semibold">📞 Contact Details</h4>
-//             <div className="flex flex-col sm:flex-row sm:space-x-4">
-//               <input
-//                 type="email"
-//                 name="email"
-//                 placeholder="Email Address"
-//                 value={formData.email}
-//                 onChange={handleChange}
-//                 className="w-full sm:w-1/2 p-4 border border-gray-300 rounded-md"
-//                 required
-//               />
-//               <input
-//                 type="tel"
-//                 name="phone"
-//                 placeholder="Phone Number"
-//                 value={formData.phone}
-//                 onChange={handleChange}
-//                 className="w-full sm:w-1/2 p-4 border border-gray-300 rounded-md"
-//                 required
-//               />
-//             </div>
-//           </div>
-
-//           {/* Position You’re Applying For Section */}
-//           <div className="space-y-4">
-//             <h4 className="text-xl font-semibold">🎭 Position You’re Applying For</h4>
-//             <select
-//               name="position"
-//               value={formData.position}
-//               onChange={handleChange}
-//               className="w-full p-4 border border-gray-300 rounded-md"
-//               required
-//             >
-//               <option value="">Select a position</option>
-//               <option value="Actor">Actor</option>
-//               <option value="Cinematographer">Cinematographer</option>
-//               <option value="Photographer">Photographer</option>
-//               <option value="DOP">Director of Photography (DOP)</option>
-//               <option value="Production Manager">Production Manager</option>
-//               <option value="Sound Engineer">Sound Engineer</option>
-//               <option value="Other">Other</option>
-//             </select>
-//           </div>
-
-//           {/* Resume / Portfolio Upload */}
-//           <div className="space-y-4">
-//             <h4 className="text-xl font-semibold">📎 Upload Resume / Portfolio (Optional)</h4>
-//             <input
-//               type="file"
-//               name="resume"
-//               onChange={handleFileChange}
-//               className="w-full p-4 border border-gray-300 rounded-md"
-//             />
-//           </div>
-
-//           {/* Submit Button */}
-//           <div className="mt-6">
-//             <button
-//               type="submit"
-//               className="w-full bg-blue-900 text-white font-bold py-3 px-6 rounded-full text-xl transition-all duration-300 hover:bg-blue-700"
-//             >
-//               Submit Application
-//             </button>
-//           </div>
-//         </form>
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default CareerPage;
-
-
-import React, { useState } from "react";
-import emailjs from "emailjs-com";
-
-const CareerPage = () => {
+export default function CareerPage() {
   const [formData, setFormData] = useState({
-    fullName: "",
-    age: "",
-    gender: "",
-    about: "",
-    email: "",
-    phone: "",
-    position: "",
-    resume: null,
+    fullName: '',
+    age: '',
+    gender: '',
+    aboutYou: '',
+    email: '',
+    phone: '',
+    position: '',
+    otherPosition: '',
   });
+  const [resume, setResume] = useState(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
+
+  const positions = [
+    'Actor',
+    'Cinematographer',
+    'Photographer',
+    'Director of Photography (DOP)',
+    'Production Manager',
+    'Sound Engineer',
+    'Other'
+  ];
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
+    setFormData(prev => ({ ...prev, [name]: value }));
   };
 
   const handleFileChange = (e) => {
-    const { name, files } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: files[0],
-    }));
+    setResume(e.target.files[0]);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus(null);
 
-    const { fullName, age, gender, about, email, phone, position, resume } = formData;
-
-    // Log the form data to verify
-    console.log("Form Data:", formData);
-
-    // Send form data via EmailJS
-    emailjs
-      .sendForm(
-        process.env.REACT_APP_EMAILJS_SERVICE_ID, // Service ID from .env
-        process.env.REACT_APP_EMAILJS_TEMPLATE_ID, // Template ID from .env
-        e.target, // The form itself
-        process.env.REACT_APP_EMAILJS_USER_ID // User ID from .env
-      )
-      .then(
-        (result) => {
-          console.log("Email sent successfully:", result.text);
-          alert("Application submitted successfully!");
-        },
-        (error) => {
-          console.log("Error sending email:", error.text);
-          alert("Error sending application. Please try again.");
-        }
-      );
-
-    // Optionally reset the form data after submission
-    setFormData({
-      fullName: "",
-      age: "",
-      gender: "",
-      about: "",
-      email: "",
-      phone: "",
-      position: "",
-      resume: null,
+    const formPayload = new FormData();
+    Object.entries(formData).forEach(([key, value]) => {
+      formPayload.append(key, value);
     });
+    if (resume) {
+      formPayload.append('resume', resume);
+    }
+
+    try {
+      const response = await fetch('/api/submit-application', {
+        method: 'POST',
+        body: formPayload,
+      });
+
+      const result = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(result.error || 'Submission failed');
+      }
+
+      setSubmitStatus('success');
+      setFormData({
+        fullName: '',
+        age: '',
+        gender: '',
+        aboutYou: '',
+        email: '',
+        phone: '',
+        position: '',
+        otherPosition: '',
+      });
+      setResume(null);
+    } catch (error) {
+      setSubmitStatus(`error: ${error.message}`);
+      console.error('Submission error:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
-    <section className="bg-white text-blue-900 py-16 px-6 md:px-20">
-      <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-4xl sm:text-5xl font-semibold mb-8">
-          Join Our Creative Team
-        </h2>
-        <p className="text-lg sm:text-xl mb-8">
-          We’re always on the lookout for passionate and talented individuals
-          in the film and media industry. Whether you&apos;re in front of the camera
-          or behind it, if you&apos;ve got the drive — we want to hear from you!
-        </p>
-        <hr className="mb-8" />
+    <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+      <Head>
+        <title>Join Our Creative Team</title>
+      </Head>
+      
+      <div className="max-w-3xl mx-auto bg-white rounded-xl shadow-md overflow-hidden p-8">
+        {/* Header and description */}
+        <div className="text-center mb-8">
+          <h1 className="text-3xl font-bold text-gray-800">Join Our Creative Team</h1>
+          <p className="mt-4 text-lg text-gray-600">
+            We're always on the lookout for passionate and talented individuals in the film and media industry. 
+            Whether you're in front of the camera or behind it, if you've got the drive — we want to hear from you!
+          </p>
+        </div>
 
-        <h3 className="text-2xl font-semibold mb-4">📋 Apply Now</h3>
-        <p className="mb-8">
-          Fill out the form below to apply for a role with us. We&apos;ll get in
-          touch with suitable candidates shortly.
-        </p>
+        {/* Application notice */}
+        <div className="mb-8 p-4 bg-blue-50 border-l-4 border-blue-500">
+          <h2 className="text-xl font-semibold mb-2">📋 Apply Now</h2>
+          <p>Fill out the form below to apply for a role with us. We'll get in touch with suitable candidates shortly.</p>
+        </div>
 
-        <form onSubmit={handleSubmit} className="space-y-6">
-          {/* Basic Information Section */}
-          <div className="space-y-4">
-            <h4 className="text-xl font-semibold">👤 Basic Information</h4>
-            <div className="flex flex-col sm:flex-row sm:space-x-4">
-              <input
-                type="text"
-                name="fullName"
-                placeholder="Full Name"
-                value={formData.fullName}
-                onChange={handleChange}
-                className="w-full sm:w-1/2 p-4 border border-gray-300 rounded-md"
-                required
-              />
-              <input
-                type="number"
-                name="age"
-                placeholder="Age"
-                value={formData.age}
-                onChange={handleChange}
-                className="w-full sm:w-1/2 p-4 border border-gray-300 rounded-md"
-                required
-              />
+        {/* Status messages */}
+        {submitStatus?.startsWith('success') && (
+          <div className="mb-6 p-4 bg-green-100 text-green-700 rounded">
+            Thank you for your application! We'll review your information and get back to you soon.
+          </div>
+        )}
+
+        {submitStatus?.startsWith('error') && (
+          <div className="mb-6 p-4 bg-red-100 text-red-700 rounded">
+            {submitStatus.replace('error: ', '')}
+          </div>
+        )}
+
+        {/* Main form */}
+        <form onSubmit={handleSubmit} className="space-y-8">
+          {/* Basic Information */}
+          <div className="border-b border-gray-200 pb-8">
+            <h2 className="text-xl font-semibold mb-6 flex items-center">
+              <span className="mr-2">👤</span> Basic Information
+            </h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-1">
+                  Full Name *
+                </label>
+                <input
+                  type="text"
+                  id="fullName"
+                  name="fullName"
+                  value={formData.fullName}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="age" className="block text-sm font-medium text-gray-700 mb-1">
+                  Age
+                </label>
+                <input
+                  type="number"
+                  id="age"
+                  name="age"
+                  value={formData.age}
+                  onChange={handleChange}
+                  min="16"
+                  max="99"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row sm:space-x-4">
-              <label className="text-lg font-semibold">Gender:</label>
-              <div className="flex space-x-4">
-                <label>
-                  <input
-                    type="radio"
-                    name="gender"
-                    value="Male"
-                    onChange={handleChange}
-                    className="mr-2"
-                  />
-                  Male
-                </label>
-                <label>
-                  <input
-                    type="radio"
-                    name="gender"
-                    value="Female"
-                    onChange={handleChange}
-                    className="mr-2"
-                  />
-                  Female
-                </label>
-                <label>
-                  <input
-                    type="radio"
-                    name="gender"
-                    value="Other"
-                    onChange={handleChange}
-                    className="mr-2"
-                  />
-                  Other
-                </label>
-                <label>
-                  <input
-                    type="radio"
-                    name="gender"
-                    value="Prefer not to say"
-                    onChange={handleChange}
-                    className="mr-2"
-                  />
-                  Prefer not to say
-                </label>
+            <div className="mt-6">
+              <label className="block text-sm font-medium text-gray-700 mb-2">Gender</label>
+              <div className="flex flex-wrap gap-4">
+                {['Male', 'Female', 'Other', 'Prefer not to say'].map((option) => (
+                  <label key={option} className="inline-flex items-center">
+                    <input
+                      type="radio"
+                      name="gender"
+                      value={option}
+                      checked={formData.gender === option}
+                      onChange={handleChange}
+                      className="h-4 w-4 text-blue-600 focus:ring-blue-500"
+                    />
+                    <span className="ml-2 text-gray-700">{option}</span>
+                  </label>
+                ))}
               </div>
             </div>
           </div>
 
-          {/* About You Section */}
-          <div className="space-y-4">
-            <h4 className="text-xl font-semibold">🧾 About You</h4>
-            <textarea
-              name="about"
-              placeholder="Tell us about yourself: (short bio, experience, goals, etc.)"
-              value={formData.about}
-              onChange={handleChange}
-              className="w-full p-4 border border-gray-300 rounded-md"
-              rows="4"
-              required
-            />
-          </div>
-
-          {/* Contact Details Section */}
-          <div className="space-y-4">
-            <h4 className="text-xl font-semibold">📞 Contact Details</h4>
-            <div className="flex flex-col sm:flex-row sm:space-x-4">
-              <input
-                type="email"
-                name="email"
-                placeholder="Email Address"
-                value={formData.email}
+          {/* About You */}
+          <div className="border-b border-gray-200 pb-8">
+            <h2 className="text-xl font-semibold mb-6 flex items-center">
+              <span className="mr-2">🧾</span> About You
+            </h2>
+            
+            <div>
+              <label htmlFor="aboutYou" className="block text-sm font-medium text-gray-700 mb-1">
+                Tell us about yourself
+              </label>
+              <textarea
+                id="aboutYou"
+                name="aboutYou"
+                rows={6}
+                value={formData.aboutYou}
                 onChange={handleChange}
-                className="w-full sm:w-1/2 p-4 border border-gray-300 rounded-md"
-                required
-              />
-              <input
-                type="tel"
-                name="phone"
-                placeholder="Phone Number"
-                value={formData.phone}
-                onChange={handleChange}
-                className="w-full sm:w-1/2 p-4 border border-gray-300 rounded-md"
-                required
+                placeholder="Your short bio, experience, goals, etc."
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
           </div>
 
-          {/* Position You’re Applying For Section */}
-          <div className="space-y-4">
-            <h4 className="text-xl font-semibold">🎭 Position You’re Applying For</h4>
-            <select
-              name="position"
-              value={formData.position}
-              onChange={handleChange}
-              className="w-full p-4 border border-gray-300 rounded-md"
-              required
-            >
-              <option value="">Select a position</option>
-              <option value="Actor">Actor</option>
-              <option value="Cinematographer">Cinematographer</option>
-              <option value="Photographer">Photographer</option>
-              <option value="DOP">Director of Photography (DOP)</option>
-              <option value="Production Manager">Production Manager</option>
-              <option value="Sound Engineer">Sound Engineer</option>
-              <option value="Other">Other</option>
-            </select>
+          {/* Contact Details */}
+          <div className="border-b border-gray-200 pb-8">
+            <h2 className="text-xl font-semibold mb-6 flex items-center">
+              <span className="mr-2">📞</span> Contact Details
+            </h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                  Email Address *
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+                  Phone Number
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+            </div>
           </div>
 
-          {/* Resume / Portfolio Upload */}
-          <div className="space-y-4">
-            <h4 className="text-xl font-semibold">📎 Upload Resume / Portfolio (Optional)</h4>
-            <input
-              type="file"
-              name="resume"
-              onChange={handleFileChange}
-              className="w-full p-4 border border-gray-300 rounded-md"
-            />
+          {/* Position */}
+          <div className="border-b border-gray-200 pb-8">
+            <h2 className="text-xl font-semibold mb-6 flex items-center">
+              <span className="mr-2">🎭</span> Position You're Applying For *
+            </h2>
+            
+            <div className="space-y-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                {positions.map((pos) => (
+                  <label key={pos} className="inline-flex items-center">
+                    <input
+                      type="radio"
+                      name="position"
+                      value={pos}
+                      checked={formData.position === pos}
+                      onChange={handleChange}
+                      required
+                      className="h-4 w-4 text-blue-600 focus:ring-blue-500"
+                    />
+                    <span className="ml-2 text-gray-700">{pos}</span>
+                  </label>
+                ))}
+              </div>
+
+              {formData.position === 'Other' && (
+                <div className="mt-4">
+                  <label htmlFor="otherPosition" className="block text-sm font-medium text-gray-700 mb-1">
+                    Please specify *
+                  </label>
+                  <input
+                    type="text"
+                    id="otherPosition"
+                    name="otherPosition"
+                    value={formData.otherPosition}
+                    onChange={handleChange}
+                    required={formData.position === 'Other'}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+              )}
+            </div>
           </div>
 
-          {/* Submit Button */}
-          <div className="mt-6">
+          {/* Resume Upload */}
+          <div className="pb-8">
+            <h2 className="text-xl font-semibold mb-6 flex items-center">
+              <span className="mr-2">📎</span> Upload Resume / Portfolio (Optional)
+            </h2>
+            
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                File (PDF, DOCX, or image files)
+              </label>
+              <div className="mt-1 flex items-center">
+                <label className="cursor-pointer bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                  Choose File
+                  <input
+                    type="file"
+                    className="sr-only"
+                    onChange={handleFileChange}
+                    accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
+                  />
+                </label>
+                <span className="ml-4 text-sm text-gray-500">
+                  {resume ? resume.name : 'No file chosen'}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Submit Section */}
+          <div className="pt-4">
+            <p className="text-sm text-gray-500 mb-6">
+              <span className="font-semibold">📝 Note:</span> Please make sure your contact information is correct. 
+              We'll contact shortlisted applicants via email or phone number. Fields marked with * are required.
+            </p>
+            
             <button
               type="submit"
-              className="w-full bg-blue-900 text-white font-bold py-3 px-6 rounded-full text-xl transition-all duration-300 hover:bg-blue-700"
+              disabled={isSubmitting}
+              className="w-full md:w-auto px-8 py-3 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Submit Application
+              {isSubmitting ? 'Submitting...' : 'Submit Application'}
             </button>
           </div>
         </form>
       </div>
-    </section>
+    </div>
   );
-};
-
-export default CareerPage;
+}
