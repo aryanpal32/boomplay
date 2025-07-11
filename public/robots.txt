@@ -1,17 +1,7 @@
-export default function RobotsTxt() {}
-
-export async function getServerSideProps({ res }) {
-  const robotsTxt = `User-agent: *
+User-agent: *
 Allow: /
 Disallow: /admin/
-Disallow: /private/
 Disallow: /api/
+Disallow: /private/
 
-Sitemap: ${process.env.NEXT_PUBLIC_SITE_URL}/sitemap.xml
-`;
-
-  res.setHeader('Content-Type', 'text/plain');
-  res.write(robotsTxt);
-  res.end();
-  return { props: {} };
-}
+Sitemap: https://yourdomain.com/sitemap.xml
