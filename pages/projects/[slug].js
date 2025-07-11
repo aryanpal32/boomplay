@@ -1,11 +1,17 @@
+// pages/projects/[slug].js
 import { useRouter } from 'next/router';
 import SEO from '../../components/SEO';
+import { fetchProjectBySlug, fetchProjects } from '../../lib/projects';
 
 const ProjectPage = ({ projectData }) => {
   const router = useRouter();
   
   if (router.isFallback) {
     return <div>Loading...</div>;
+  }
+
+  if (!projectData) {
+    return <div>Project not found</div>;
   }
 
   const structuredData = {
@@ -23,28 +29,38 @@ const ProjectPage = ({ projectData }) => {
         title={`${projectData.title} | Boom Play Project`}
         description={projectData.metaDescription}
         keywords={projectData.tags.join(', ')}
-        ogImage={projectData.socialImage}
+        ogImage={projectData.imageUrl}
         structuredData={structuredData}
-        canonicalUrl={`https://boomplay.com/projects/${projectData.slug}`}
+        canonicalUrl={`${process.env.NEXT_PUBLIC_SITE_URL}/projects/${projectData.slug}`}
       />
       
-      {/* Project content */}
+      <main className="container mx-auto py-12 px-4">
+        <h1 className="text-4xl font-bold mb-6">{projectData.title}</h1>
+        <img 
+          src={projectData.imageUrl} 
+          alt={projectData.title} 
+          className="w-full h-auto mb-8 rounded-lg"
+        />
+        <p className="text-lg mb-4">{projectData.description}</p>
+        {/* Add more project details here */}
+      </main>
     </>
   );
 };
 
 export async function getStaticPaths() {
-  // Fetch all project slugs
   const projects = await fetchProjects();
   const paths = projects.map((project) => ({
     params: { slug: project.slug },
   }));
 
-  return { paths, fallback: true };
+  return { 
+    paths,
+    fallback: true // Allows new slugs without rebuild
+  };
 }
 
 export async function getStaticProps({ params }) {
-  // Fetch project data based on slug
   const projectData = await fetchProjectBySlug(params.slug);
   
   if (!projectData) {
@@ -53,7 +69,7 @@ export async function getStaticProps({ params }) {
 
   return {
     props: { projectData },
-    revalidate: 86400, // Regenerate page once per day
+    revalidate: 86400, // Regenerate at most once per day
   };
 }
 
