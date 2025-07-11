@@ -18,8 +18,7 @@ const Home = () => (
     <HeroSection />
     <AboutUs />
     <main className="p-10">
-      <section id="projects" className="mt-10">
-        <h2 className="text-3xl text-center mb-6">Projects</h2>
+      <section id="projects" className="mt-2">
         <div className="flex flex-wrap justify-center">
           {projects.map((project, index) => (
             <ProjectCard key={index} {...project} />

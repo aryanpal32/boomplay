@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import Head from 'next/head';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 export default function CareerPage() {
   const [formData, setFormData] = useState({
@@ -81,7 +83,9 @@ export default function CareerPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div>
+    <Header />
+    <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8 ">
       <Head>
         <title>Join Our Creative Team</title>
       </Head>
@@ -89,7 +93,7 @@ export default function CareerPage() {
       <div className="max-w-3xl mx-auto bg-white rounded-xl shadow-md overflow-hidden p-8">
         {/* Header and description */}
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-800">Join Our Creative Team</h1>
+          <h1 className="text-3xl font-bold text-gray-800 mt-16">Join Our Creative Team</h1>
           <p className="mt-4 text-lg text-gray-600">
             We&apos;re always on the lookout for passionate and talented individuals in the film and media industry. 
             Whether you&apos;re in front of the camera or behind it, if you&apos;ve got the drive — we want to hear from you!
@@ -323,6 +327,8 @@ export default function CareerPage() {
           </div>
         </form>
       </div>
+    </div>
+    <Footer />
     </div>
   );
 }
