@@ -91,21 +91,21 @@ export default function CareerPage() {
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-gray-800">Join Our Creative Team</h1>
           <p className="mt-4 text-lg text-gray-600">
-            We're always on the lookout for passionate and talented individuals in the film and media industry. 
-            Whether you're in front of the camera or behind it, if you've got the drive — we want to hear from you!
+            We&apos;re always on the lookout for passionate and talented individuals in the film and media industry. 
+            Whether you&apos;re in front of the camera or behind it, if you&apos;ve got the drive — we want to hear from you!
           </p>
         </div>
 
         {/* Application notice */}
         <div className="mb-8 p-4 bg-blue-50 border-l-4 border-blue-500">
           <h2 className="text-xl font-semibold mb-2">📋 Apply Now</h2>
-          <p>Fill out the form below to apply for a role with us. We'll get in touch with suitable candidates shortly.</p>
+          <p>Fill out the form below to apply for a role with us. We&apos;ll get in touch with suitable candidates shortly.</p>
         </div>
 
         {/* Status messages */}
         {submitStatus?.startsWith('success') && (
           <div className="mb-6 p-4 bg-green-100 text-green-700 rounded">
-            Thank you for your application! We'll review your information and get back to you soon.
+            Thank you for your application! We&apos;ll review your information and get back to you soon.
           </div>
         )}
 
@@ -239,7 +239,7 @@ export default function CareerPage() {
           {/* Position */}
           <div className="border-b border-gray-200 pb-8">
             <h2 className="text-xl font-semibold mb-6 flex items-center">
-              <span className="mr-2">🎭</span> Position You're Applying For *
+              <span className="mr-2">🎭</span> Position You&apos;re Applying For *
             </h2>
             
             <div className="space-y-4">
@@ -310,7 +310,7 @@ export default function CareerPage() {
           <div className="pt-4">
             <p className="text-sm text-gray-500 mb-6">
               <span className="font-semibold">📝 Note:</span> Please make sure your contact information is correct. 
-              We'll contact shortlisted applicants via email or phone number. Fields marked with * are required.
+              We&apos;ll contact shortlisted applicants via email or phone number. Fields marked with * are required.
             </p>
             
             <button
