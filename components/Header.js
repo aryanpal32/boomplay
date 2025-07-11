@@ -227,9 +227,7 @@ const Header = () => {
               <h1 className="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-800 to-blue-600">
                 BOOM PLAY
               </h1>
-              <span className="text-sm md:text-lg font-light text-gray-500 hidden md:block transform transition-all duration-500 hover:scale-105">
-                we/lo
-              </span>
+              
             </div>
           </div>
 
