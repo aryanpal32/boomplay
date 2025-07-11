@@ -1,17 +1,18 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+import PropTypes from 'prop-types';
 
-export default function SEO({
-  title = "Boom Play - Premium Media Production Services",
+const SEO = ({
+  title = "Boom Play - Premium Media Production",
   description = "Boom Play is a leading media production company specializing in film, photography, and digital content creation.",
   keywords = "media production, film company, photography, content creation",
   ogImage = "/images/og-default.jpg",
   structuredData,
   noindex = false,
   canonicalUrl
-}) {
+}) => {
   const router = useRouter();
-  const pageUrl = `${process.env.NEXT_PUBLIC_SITE_URL}${router.asPath}`;
+  const pageUrl = `${process.env.NEXT_PUBLIC_SITE_URL || 'https://boomplaymedia.com/'}${router.asPath}`;
   
   return (
     <Head>
@@ -30,14 +31,14 @@ export default function SEO({
       <meta property="og:url" content={pageUrl} />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
-      <meta property="og:image" content={`${process.env.NEXT_PUBLIC_SITE_URL}${ogImage}`} />
+      <meta property="og:image" content={`${process.env.NEXT_PUBLIC_SITE_URL || 'https://boomplaymedia.com/'}${ogImage}`} />
       <meta property="og:site_name" content="Boom Play" />
       
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={`${process.env.NEXT_PUBLIC_SITE_URL}${ogImage}`} />
+      <meta name="twitter:image" content={`${process.env.NEXT_PUBLIC_SITE_URL || 'https://boomplaymedia.com/'}${ogImage}`} />
       
       {/* Structured Data */}
       {structuredData && (
@@ -53,4 +54,16 @@ export default function SEO({
       <link rel="manifest" href="/favicons/site.webmanifest" />
     </Head>
   );
-}
+};
+
+SEO.propTypes = {
+  title: PropTypes.string,
+  description: PropTypes.string,
+  keywords: PropTypes.string,
+  ogImage: PropTypes.string,
+  structuredData: PropTypes.object,
+  noindex: PropTypes.bool,
+  canonicalUrl: PropTypes.string
+};
+
+export default SEO;
