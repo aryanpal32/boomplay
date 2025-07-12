@@ -35,6 +35,8 @@ export async function getStaticProps({ params }) {
   };
 }
 
+
+
 const ProjectDetailPage = ({ project }) => {
   const router = useRouter();
 
