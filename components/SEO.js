@@ -3,10 +3,10 @@ import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 
 const SEO = ({
-  title = "Boom Play - Premium Media Production",
+  title = "Boom Play Media",
   description = "Boom Play is a leading media production company specializing in film, photography, and digital content creation.",
-  keywords = "media production, film company, photography, content creation",
-  ogImage = "/images/og-default.jpg",
+  keywords = "media production, film company, photography, content creation, Boom play media, Aryan Pal,trading,media",
+  ogImage = "/boomplaylogo.png",
   structuredData,
   noindex = false,
   canonicalUrl
