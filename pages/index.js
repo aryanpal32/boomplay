@@ -33,6 +33,7 @@
 
 // export default Home;
 
+
 import Header from '../components/Header';
 import ProjectCard from '../components/ProjectCard';
 import Footer from '../components/Footer';
@@ -41,15 +42,30 @@ import AboutUs from '@/components/AboutUs';
 import AboutFounder from '@/components/Aboutfounder';
 import SEO from '@/components/SEO';
 
+// Project data array - easily add new projects here
 const projects = [
   { 
     title: 'Price Action', 
-    imgSrc: '/images/the-journey.jpg',
+    imgSrc: '/priceactionimage.png',
     slug: 'price-action',
     description: 'Professional trading education series',
     tags: ['trading', 'education', 'finance']
   },
-  // Add more projects here
+  // { 
+  //   title: 'Market Masters', 
+  //   imgSrc: '/marketmasters.jpg',
+  //   slug: 'market-masters',
+  //   description: 'Advanced trading strategies series',
+  //   tags: ['trading', 'advanced', 'strategies']
+  // },
+  // { 
+  //   title: 'The Wealth Journey', 
+  //   imgSrc: '/wealthjourney.jpg',
+  //   slug: 'wealth-journey',
+  //   description: 'Personal finance documentary series',
+  //   tags: ['finance', 'documentary', 'education']
+  // },
+  // Add more projects as needed by copying the object format above
 ];
 
 const Home = () => {
@@ -93,14 +109,14 @@ const Home = () => {
       <AboutUs />
       
       <main className="p-10 max-w-7xl mx-auto">
-        <section id="projects" className="mt-20">
-          <h2 className="text-3xl font-bold text-center mb-10">Our Featured Projects</h2>
+        <section id="projects" className="mt-6">
+          <h2 className="text-3xl font-bold text-center mb-10">Our Projects</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
               <ProjectCard 
                 key={index} 
                 title={project.title}
-                image={project.imgSrc}
+                imgSrc={project.imgSrc}
                 description={project.description}
                 tags={project.tags}
                 slug={project.slug}

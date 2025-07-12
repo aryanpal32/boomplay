@@ -274,15 +274,15 @@ import React from 'react';
 import Image from 'next/image';
 
 const AboutFounder = () => (
-  <section className="bg-gradient-to-br from-blue-50 to-white text-blue-900 py-16 px-6 md:px-20 relative overflow-hidden">
+  <section className="bg-gradient-to-br from-blue-50 to-white text-blue-900 py-16 px-6 md:px-20 relative overflow-hidden mt-16">
     {/* Decorative elements */}
     <div className="absolute -top-20 -right-20 w-64 h-64 bg-blue-100 rounded-full opacity-20"></div>
-    <div className="absolute bottom-10 -left-20 w-80 h-80 bg-blue-100 rounded-full opacity-10"></div>
+    <div className="absolute bottom-10 -left-20 w-80 h-80 bg-blue-100 rounded-full opacity-10 "></div>
 
-    <div className="max-w-6xl mx-auto relative z-10">
-      <div className="text-center mb-12">
-        <h2 className="text-4xl md:text-5xl font-bold mb-4">
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-400">
+    <div className="max-w-6xl mx-auto relative z-10 ">
+      <div className="text-center mb-12 ">
+        <h2 className="text-4xl md:text-5xl font-bold mb-4 ">
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-400 ">
             The Visionary Behind Boom Play
           </span>
         </h2>
@@ -310,9 +310,7 @@ const AboutFounder = () => (
 
         {/* Founder Bio */}
         <div className="w-full md:w-3/5 space-y-6">
-          <h3 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-400">
-            From ₹10 Crore Portfolio to Financial Educator
-          </h3>
+         
 
           <p className="text-lg leading-relaxed">
             Aryan Pal isn&apos;t your typical entrepreneur. A <span className="font-semibold text-blue-600">self-made trader</span>, <span className="font-semibold text-blue-600">award-winning filmmaker</span>, and <span className="font-semibold text-blue-600">passionate educator</span>, he&apos;s on a mission to democratize financial literacy through compelling storytelling.
