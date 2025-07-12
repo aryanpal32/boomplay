@@ -48,7 +48,13 @@ const projects = [
     title: 'Price Action', 
     imgSrc: '/priceactionimage.png',
     slug: 'price-action',
-    description: 'Professional trading education series',
+    description: `Price Action is the debut web series by Boom Play Media — a gripping psychological thriller set in the high-stakes world of stock trading.
+
+The story follows Aryan, a small-town dreamer who moves to the city to become an actor but accidentally stumbles into the chaotic world of financial markets. What begins as a search for success soon turns into a journey through greed, obsession, betrayal, and inner conflict.
+
+This series explores not just the technical side of trading, but the emotions, psychology, and mental pressure that drive human behavior in high-risk environments.
+
+Written and Directed by Aryan Pal, Price Action reflects the darker side of ambition and the cost of chasing money in a world full of illusions.`,
     tags: ['trading', 'education', 'finance']
   },
   // { 
