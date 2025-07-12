@@ -1,5 +1,5 @@
 
-// ***** this Project list page ****
+// ***** this Project list page ***
 import Image from 'next/image';
 import SEO from '@/components/SEO';
 import Link from 'next/link';

@@ -1,37 +1,4 @@
-// // pages/index.js
-// import Header from '../components/Header';
-// import ProjectCard from '../components/ProjectCard';
-// import Footer from '../components/Footer';
-// import HeroSection from '../components/HeroSection';
-// import AboutUs from '@/components/AboutUs';
-// import AboutFounder from '@/components/Aboutfounder';
 
-// const projects = [
-//   { title: 'Price Action', imgSrc: '/images/the-journey.jpg' },
-
- 
-// ];
-
-// const Home = () => (
-//   <div>
-//     <Header />
-//     <HeroSection />
-//     <AboutUs />
-//     <main className="p-10">
-//       <section id="projects" className="mt-2">
-//         <div className="flex flex-wrap justify-center">
-//           {projects.map((project, index) => (
-//             <ProjectCard key={index} {...project} />
-//           ))}
-//         </div>
-//       </section>
-//       <AboutFounder />
-//     </main>
-//     <Footer />
-//   </div>
-// );
-
-// export default Home;
 
 
 import Header from '../components/Header';
@@ -105,8 +72,8 @@ const Home = () => {
       <SEO 
         title="Boom Play | Media Production & Trading Education"
         description="Professional media production services and premium trading education. Explore our projects and learning resources."
-        keywords="media production, trading education, film production, price action trading"
-        ogImage="/images/og-home.jpg"
+        keywords="media production, trading education, film production, price action trading, boom play media, aryan pal, trading"
+        ogImage="/boomplaylogo.png"
         structuredData={[structuredData, organizationStructuredData]}
       />
 

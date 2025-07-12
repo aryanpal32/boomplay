@@ -1,5 +1,5 @@
 // pages/sitemap.xml.js
-const EXTERNAL_DATA_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://yourdomain.com';
+const EXTERNAL_DATA_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://boomplaymedia.com';
 
 function generateSiteMap() {
   return `<?xml version="1.0" encoding="UTF-8"?>
