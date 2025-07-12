@@ -161,7 +161,7 @@ const AboutUs = () => (
               </svg>
             </div>
             <h3 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-200">
-              Price Action/ <span>Upcoming</span>
+              Price Action/ <span>Upcoming Project</span>
             </h3>
           </div>
           <p className="text-blue-100 leading-relaxed">
