@@ -9,16 +9,6 @@ const AboutUs = () => (
       <div className="absolute bottom-10 right-20 w-40 h-40 rounded-full bg-blue-500 filter blur-3xl"></div>
     </div>
 
-    {/* Floating logo */}
-    {/* <div className="absolute top-10 right-10 w-24 h-24 opacity-100 animate-float">
-      <Image 
-        src="/boomplaylogo.png" // Replace with your logo path
-        alt="Boom Play Media Logo"
-        width={96}
-        height={96}
-        className="object-contain"
-      />
-    </div> */}
 
     <div className="max-w-6xl mx-auto relative z-10">
       {/* Animated title */}
@@ -108,16 +98,7 @@ const AboutUs = () => (
       </div>
     </div>
 
-    {/* Floating logo at bottom */}
-    {/* <div className="absolute bottom-10 left-10 w-16 h-16 opacity-80 animate-float-reverse">
-      <Image 
-        src="/boomplaylogo.png" // Replace with your logo path
-        alt="Boom Play Media Logo"
-        width={96}
-        height={96}
-        className="object-contain"
-      />
-    </div> */}
+ 
   </section>
 );
 

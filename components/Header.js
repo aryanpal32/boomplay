@@ -150,7 +150,7 @@ const Header = () => {
 
   // Navigation items with proper routes
   const navItems = [
-    { name: 'About Us', href: '/', component: 'AboutUs' },
+    { name: 'About Us', href: '/AboutUs', component: 'AboutUs' },
     { name: 'Projects', href: '/', component: 'ProjectCard' },
     { name: 'Career', href: '/CareerPage', component: 'CareerPage' },
     { name: 'Contact Us', href: '/ContactPage', component: 'ContactPage' }
