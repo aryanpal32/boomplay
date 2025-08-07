@@ -103,11 +103,7 @@ const Footer = () => (
             {/* <Link href="././AboutUs" className="block text-blue-100 hover:text-white transition-colors">
               About Us
             </Link> */}
-<<<<<<< HEAD
-            <Link href="/" className="block text-blue-100 hover:text-white transition-colors">
-=======
             <Link href="/projects" className="block text-blue-100 hover:text-white transition-colors">
->>>>>>> master
               Our Projects
             </Link>
             {/* <Link href="/team" className="block text-blue-100 hover:text-white transition-colors">

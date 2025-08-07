@@ -128,7 +128,7 @@ const Projects = () => {
             <div className="bg-gradient-to-r from-blue-50 to-white p-8 rounded-2xl shadow-inner border border-blue-100">
               <h3 className="text-2xl font-bold text-blue-900 mb-4">Have a project in mind?</h3>
               <p className="text-blue-700 mb-6 max-w-2xl mx-auto">
-                We're always looking for innovative collaborations that push creative boundaries in financial storytelling.
+                We&apos;re always looking for innovative collaborations that push creative boundaries in financial storytelling.
               </p>
               <Link
                 href="/contact"
