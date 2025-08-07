@@ -71,7 +71,11 @@ const Header = () => {
                 />
               </div>
               <div className="flex flex-col md:flex-row md:items-baseline space-y-0 md:space-y-0 md:space-x-2">
+<<<<<<< HEAD
                 <h1 className="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-800 to-blue-600">
+=======
+                <h1 className="text-2xl md:text-3xl uppercase font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-800 to-blue-600">
+>>>>>>> master
                   BOOM PLAY Media
                 </h1>
               </div>

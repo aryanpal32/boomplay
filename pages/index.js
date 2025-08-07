@@ -81,7 +81,7 @@ const Home = () => {
       <HeroSection />
       <AboutUs />
       
-      <main className="p-10 max-w-7xl mx-auto">
+      <main className="px-4 py-10 lg:p-10 max-w-7xl mx-auto">
         <section id="projects" className="mt-6">
           <h2 className="text-3xl font-bold text-center mb-10">Our Projects</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

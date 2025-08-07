@@ -5,30 +5,74 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
 const AboutUs = () => {
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Boom Play Media",
-    "url": process.env.NEXT_PUBLIC_SITE_URL || "https://boomplay.com",
-    "logo": `${process.env.NEXT_PUBLIC_SITE_URL || 'https://boomplay.com'}/images/logo.png`,
-    "description": "Film production company creating bold web series and financial education content",
-    "founder": {
-      "@type": "Person",
-      "name": "Aryan Pal"
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://boomplay.com";
+  const currentPageUrl = `${siteUrl}/about`;
+  
+  // Enhanced Structured Data
+  const structuredData = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Boom Play Media",
+      "url": siteUrl,
+      "logo": `${siteUrl}/images/logo.png`,
+      "description": "Film production company creating bold web series and financial education content",
+      "founder": {
+        "@type": "Person",
+        "name": "Aryan Pal",
+        "url": `${siteUrl}/team/aryan-pal`,
+        "jobTitle": "Founder & Creative Director",
+        "image": `${siteUrl}/founder.jpeg`
+      },
+      "sameAs": [
+        "https://www.facebook.com/boomplaymedia",
+        "https://www.instagram.com/boomplaymedia",
+        "https://www.linkedin.com/company/boomplaymedia"
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": siteUrl
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "About Us",
+          "item": currentPageUrl
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "About Boom Play - Our Story & Mission",
+      "description": "Discover Boom Play Media - a production company merging financial education with cinematic storytelling through web series like Price Action",
+      "url": currentPageUrl,
+      "publisher": {
+        "@type": "Organization",
+        "name": "Boom Play Media"
+      }
     }
-  };
+  ];
+
 
   return (
     <>
     <Header / >
       <SEO 
-        title="About Boom Play - Our Story & Mission"
-        description="Discover Boom Play Media - a production company merging financial education with cinematic storytelling through web series like Price Action"
-        keywords="film production, financial education, web series, Aryan Pal, Boom Play Media"
-        ogImage="/images/og-about.jpg"
+        title="About Boom Play Media | Our Story, Mission & Founder Aryan Pal"
+        description="Discover Boom Play Media - a visionary production company founded by Aryan Pal, merging financial education with cinematic storytelling through web series like Price Action. Learn about our mission to democratize financial literacy."
+        keywords="Boom Play Media, Aryan Pal, Price Action web series, film production company, financial education films, stock market thriller, trading psychology, cinematic storytelling, media production"
+        ogImage={`${siteUrl}/images/og-about.jpg`}
         structuredData={structuredData}
+        canonicalUrl={currentPageUrl}
       />
-
       {/* Company Section */}
       <section className="relative bg-gradient-to-br from-blue-800 to-blue-950 text-white py-20 px-6 md:px-20 overflow-hidden ">
         {/* Decorative elements */}

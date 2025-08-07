@@ -313,7 +313,13 @@ const AboutFounder = () => (
          
 
           <p className="text-lg leading-relaxed">
+<<<<<<< HEAD
             Aryan Pal isn&apos;t your typical entrepreneur. A <span className="font-semibold text-blue-600">self-made trader</span>, <span className="font-semibold text-blue-600">award-winning filmmaker</span>, and <span className="font-semibold text-blue-600">passionate educator</span>, he&apos;s on a mission to democratize financial literacy through compelling storytelling.
+=======
+            Aryan Pal is a <span className="font-semibold text-blue-600">visionary entrepreneur</span>, <span className="font-semibold text-blue-600">educator</span>, and <span className="font-semibold text-blue-600">self-made entrepreneur</span> who is <span className="font-semibold text-blue-600">redefining literacy</span> and <span className="font-semibold text-blue-600">digital storytelling</span> in India.
+
+            {/* Aryan Pal isn&apos;t your typical entrepreneur. A <span className="font-semibold text-blue-600">self-made trader</span>, <span className="font-semibold text-blue-600">award-winning filmmaker</span>, and <span className="font-semibold text-blue-600">passionate educator</span>, he&apos;s on a mission to democratize financial literacy through compelling storytelling. */}
+>>>>>>> master
           </p>
 
           <div className="bg-blue-50 rounded-xl p-6 border-l-4 border-blue-400">
