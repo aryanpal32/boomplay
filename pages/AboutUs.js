@@ -6,7 +6,7 @@ import Footer from '@/components/Footer';
 
 const AboutUs = () => {
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://boomplay.com";
-  const currentPageUrl = `${siteUrl}/about`;
+  const currentPageUrl = `${siteUrl}/AboutUs`;
   
   // Enhanced Structured Data
   const structuredData = [

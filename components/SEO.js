@@ -27,12 +27,14 @@ const SEO = ({
     "@type": "Organization",
     "name": "Boom Play Media",
     "url": baseUrl,
-    "logo": `${baseUrl}/boomplaylogo.png`,
+    // "logo": `${baseUrl}/boomplaylogo.png`,
+    "logo": "https://boomplaymedia.com/boomplaylogo.png", // Full absolute URL
+  "image": "https://boomplaymedia.com/boomplaylogo.png",
     "description": description,
     "sameAs": [
-      "https://www.facebook.com/yourpage",
-      "https://www.instagram.com/yourprofile",
-      "https://www.linkedin.com/company/yourcompany"
+      "https://www.facebook.com/boomplaymedia",
+      "https://www.instagram.com/boomplaymedia",
+      // "https://www.linkedin.com/company/yourcompany"
     ]
   };
 
@@ -69,6 +71,17 @@ const SEO = ({
       <meta name="twitter:image:alt" content={`${title} | Boom Play Media`} />
       <meta name="twitter:site" content="@boomplaymedia" />
       <meta name="twitter:creator" content="@boomplaymedia" />
+        <meta name="author" content="Aryan Pal" />
+  <meta name="publisher" content="Boom Play Media" />
+  
+  {/* For local business */}
+  <meta name="geo.region" content="IN" />
+  <meta name="geo.placename" content="Mumbai" /> {/* Update with your city */}
+  <meta name="geo.position" content="latitude;longitude" />
+  <meta name="ICBM" content="latitude, longitude" />
+
+  {/* For content type */}
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
       
       {/* Structured Data */}
       <script type="application/ld+json">
@@ -81,7 +94,7 @@ const SEO = ({
       <link rel="icon" href="/favicons/favicon-16x16.png" type="image/png" />
       <link rel="apple-touch-icon" href="/favicons/apple-touch-icon.png" />
       {/* <link rel="manifest" href="/favicons/site.webmanifest" /> */}
-      
+      <link rel="logo" href="https://boomplaymedia.com/images/logo.png" />
       {/* Theme and PWA */}
       <meta name="theme-color" content="#000000" />
       <meta name="msapplication-TileColor" content="#000000" />
@@ -90,7 +103,7 @@ const SEO = ({
       {/* Performance Optimizations */}
       <link rel="preconnect" href="https://www.google-analytics.com" />
       <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
-      
+      <link rel="manifest" href="/manifest.json" />
       {/* Security */}
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
       <meta name="format-detection" content="telephone=no" />

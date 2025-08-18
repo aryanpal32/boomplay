@@ -26,58 +26,168 @@ const Projects = () => {
 
   // Enhanced Structured Data
   const structuredData = [
-    {
-      "@context": "https://schema.org",
-      "@type": "ItemList",
-      "itemListElement": projects.map((project, index) => ({
-        "@type": "ListItem",
-        "position": index + 1,
-        "item": {
-          "@type": "CreativeWork",
-          "name": project.title,
-          "description": project.description,
-          "url": `${siteUrl}/projects/${project.slug}`,
-          "image": `${siteUrl}${project.imgSrc}`,
-          "datePublished": project.releaseDate,
-          "genre": project.genre.join(", "),
-          "creator": {
-            "@type": "Person",
-            "name": project.director
-          }
-        }
-      }))
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "Boom Play Media Projects | Film & Web Series Portfolio",
-      "url": currentPageUrl,
-      "description": "Explore Boom Play Media's portfolio of innovative film and web series projects including the psychological thriller 'Price Action' about stock trading psychology.",
-      "publisher": {
-        "@type": "Organization",
-        "name": "Boom Play Media",
-        "logo": `${siteUrl}/images/logo.png`
-      }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": siteUrl
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Projects",
-          "item": currentPageUrl
-        }
+  // Organization Schema (for logo and brand identity)
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Boom Play Media",
+    "url": siteUrl,
+    "logo": `${siteUrl}/boomplaylogo.png`,
+    "description": "Film production company creating bold web series and financial education content",
+    "foundingDate": "2025", // Add actual founding year
+    "founder": {
+      "@type": "Person",
+      "name": "Aryan Pal",
+      "jobTitle": "Founder & Creative Director",
+      "image": `${siteUrl}/founder.jpeg`,
+      "sameAs": [
+        "https://www.linkedin.com/in/aryan-pal",
+        "https://twitter.com/aryanpal"
       ]
+    },
+    "sameAs": [
+      "https://www.facebook.com/boomplaymedia",
+      "https://www.instagram.com/boomplaymedia",
+      // "https://www.youtube.com/@boomplaymedia"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Mumbai",
+      "addressRegion": "Maharashtra",
+      "addressCountry": "India"
     }
-  ];
+  },
+  
+  // Breadcrumb Schema
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": siteUrl
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "About Us",
+        "item": currentPageUrl
+      }
+    ]
+  },
+  
+  // WebPage Schema
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "About Boom Play - Our Story & Mission",
+    "description": "Discover Boom Play Media - a production company merging financial education with cinematic storytelling through web series like Price Action",
+    "url": currentPageUrl,
+    "primaryImageOfPage": `${siteUrl}/founder.jpeg`,
+    "publisher": {
+      "@type": "Organization",
+      "name": "Boom Play Media",
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${siteUrl}/boomplaylogo.png`
+      }
+    }
+  },
+  
+  // Person Schema for Aryan Pal
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Aryan Pal",
+    "jobTitle": "Founder & Creative Director",
+    "image": `${siteUrl}/founder.jpeg`,
+    "description": "Award-winning filmmaker and financial educator, founder of Boom Play Media",
+    "url": `${siteUrl}/AboutUs`,
+    "sameAs": [
+      "https://www.linkedin.com/in/aryan-pal",
+      "https://twitter.com/aryanpal",
+      "https://www.ahmedabadmirror.com/from-rookie-to-10-crore--the-inspiring-portfolio-journey-of-aryan-pal/81888779.html"
+    ],
+    "knowsAbout": [
+      "Film Production",
+      "Financial Markets",
+      "Trading Psychology",
+      "Content Creation"
+    ],
+    "hasCredential": {
+      "@type": "EducationalOccupationalCredential",
+      "name": "Financial Market Certification",
+      "url": "https://example.com/certification"
+    },
+    "alumniOf": {
+      "@type": "EducationalOrganization",
+      "name": "Film Institute"
+    }
+  },
+  
+  // VideoObject Schema for Price Action
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "Price Action Web Series",
+    "description": "Psychological thriller exploring the dark side of stock trading",
+    "thumbnailUrl": `${siteUrl}/priceaction-thumbnail.jpg`,
+    "uploadDate": "2025-05-15", // Add actual date
+    "duration": "PT1H30M", // Example duration
+    "contentUrl": `${siteUrl}/price-action`,
+    "embedUrl": `${siteUrl}/embed/price-action`,
+    "interactionStatistic": {
+      "@type": "InteractionCounter",
+      "interactionType": "https://schema.org/WatchAction",
+      "userInteractionCount": 50000 // Update with actual views
+    },
+    "actor": {
+      "@type": "Person",
+      "name": "Aryan Pal"
+    },
+    "director": {
+      "@type": "Person",
+      "name": "Aryan Pal"
+    }
+  },
+
+  {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Boom Play Media",
+  "image": `${siteUrl}/boomplaylogo.png`,
+  "@id": `${siteUrl}#organization`,
+  "url": siteUrl,
+  // "telephone": "+91-",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "C-704, Crystal Plaza Link Road,  Opp. Infinity Mall, Andheri West",
+    "addressLocality": "Mumbai",
+    "addressRegion": "Maharashtra",
+    "postalCode": "400053",
+    "addressCountry": "IN"
+  },
+  // "geo": {
+  //   "@type": "GeoCoordinates",
+  //   // "latitude": 19.0760,
+  //   // "longitude": 72.8777
+  // },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+    ],
+    "opens": "09:00",
+    "closes": "18:00"
+  }
+}
+];
 
   return (
     <>
@@ -89,6 +199,8 @@ const Projects = () => {
         ogImage={`${siteUrl}/priceactionimage.png`}
         structuredData={structuredData}
         canonicalUrl={currentPageUrl}
+          publishedTime="2023-01-15T09:00:00+05:30" // When this page was published
+  author="Aryan Pal"
       />
 
       <main className="bg-white">

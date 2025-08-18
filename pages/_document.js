@@ -65,23 +65,29 @@ class MyDocument extends Document {
       <Html lang="en">
         <Head>
           {/* Favicon Setup */}
-          <link rel="icon" href="/favicon.ico" sizes="any" />
-          <link rel="icon" href="/favicons/favicon-32x32.png" type="image/png" sizes="32x32" />
-          <link rel="icon" href="/favicons/favicon-16x16.png" type="image/png" sizes="16x16" />
-          <link rel="apple-touch-icon" href="/favicons/apple-touch-icon.png" sizes="180x180" />
-          <link rel="manifest" href="/favicons/site.webmanifest" />
-          <meta name="theme-color" content="#ffffff" />
+         
+         
+           <meta name="description" content="Boom Play Media - Your ultimate destination for music, entertainment, and creative media." />
+  <meta name="keywords" content="Boom Play Media, BoomPlay, Boom Play, Media Streaming, Music Platform" />
+  <meta name="author" content="Boom Play Media" />
+  <meta name="robots" content="index, follow" />
 
-          {/* Font Preloading */}
-          <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-          <link 
-            rel="preload"
-            href="/fonts/your-font.woff2" 
-            as="font" 
-            type="font/woff2" 
-            crossOrigin="anonymous"
-          />
+  {/* Open Graph (for social media preview) */}
+  <meta property="og:site_name" content="Boom Play Media" />
+  <meta property="og:title" content="Boom Play Media - Music & Entertainment Platform" />
+  <meta property="og:description" content="Stream music, explore entertainment, and enjoy Boom Play Media's creative universe." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://boomplaymedia.com" />
+  <meta property="og:image" content="https://boomplaymedia.com/boomplaylogo.png" />
+
+  {/* Twitter Card */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Boom Play Media - Music & Entertainment Platform" />
+  <meta name="twitter:description" content="Stream music, explore entertainment, and enjoy Boom Play Media's creative universe." />
+  {/* <meta name="twitter:image" content="https://boomplaymedia.com/twitter-image.jpg" /> */}
+
+  {/* Canonical URL */}
+  <link rel="canonical" href="https://boomplaymedia.com" />
 
           {/* DNS Prefetch */}
           <link rel="dns-prefetch" href="//www.googletagmanager.com" />
