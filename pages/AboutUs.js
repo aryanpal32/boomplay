@@ -11,7 +11,7 @@ const AboutUs = () => {
     "name": "Boom Play Media",
     "url": process.env.NEXT_PUBLIC_SITE_URL || "https://boomplay.com",
     "logo": `${process.env.NEXT_PUBLIC_SITE_URL || 'https://boomplay.com'}/images/logo.png`,
-    "description": "Film production company creating  web series and financial education content",
+    "description": "Film production company creating web series and financial education content",
     "founder": {
       "@type": "Person",
       "name": "Aryan Pal"
@@ -64,7 +64,7 @@ const AboutUs = () => {
                 </h3>
               </div>
               <p className="text-blue-100 leading-relaxed">
-                <span className="font-bold text-white">Boom Play Media</span> is a dynamic film production company creating bold web series, films, and advertising content that pushes creative boundaries while educating audiences.
+                <span className="font-bold text-white">Boom Play Media</span> is a dynamic film production company creating  web series, films, and advertising content that pushes creative boundaries while educating audiences.
               </p>
             </div>
 
