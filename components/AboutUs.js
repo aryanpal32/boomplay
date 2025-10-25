@@ -39,7 +39,7 @@
 //             </h3>
 //           </div>
 //           <p className="text-blue-100 leading-relaxed">
-//             <span className="font-bold text-white">Boom Play Media</span> is a dynamic film production company creating bold web series, films, and advertising content that pushes creative boundaries.
+//             <span className="font-bold text-white">Boom Play Media</span> is a dynamic film production company creating web series, films, and advertising content that pushes creative boundaries.
 //           </p>
 //         </div>
 
@@ -145,7 +145,7 @@ const AboutUs = () => (
             </h3>
           </div>
           <p className="text-blue-100 leading-relaxed">
-            <span className="font-bold text-white">Boom Play Media</span> is a dynamic film production company creating bold web series, films, and advertising content that pushes creative boundaries.
+            <span className="font-bold text-white">Boom Play Media</span> is a dynamic film production company creating web series, films, and advertising content that pushes creative boundaries.
           </p>
         </div>
 
